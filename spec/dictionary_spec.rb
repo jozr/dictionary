@@ -19,6 +19,15 @@ describe 'Term' do
     new_term.definition[0].new_description.should eq 'An orange vegetable'
   end
 
+  it 'accepts multiple definitions for one term' do
+    new_term = Term.new 'Carrot'
+    new_definition = Definition.new 'An orange vegetable'
+    new_definition_two = Definition.new 'Tasty'
+    new_term.definition_input(new_definition)
+    new_term.definition_input(new_definition_two)
+    new_term.definition.should eq [new_definition, new_definition_two]
+  end
+
   describe '.all' do
     it 'creates an empty array' do
       Term.clear
