@@ -1,3 +1,6 @@
+require 'definition_class'
+require 'Words'
+
 require('pry')
 class Term
   @@all_terms = []

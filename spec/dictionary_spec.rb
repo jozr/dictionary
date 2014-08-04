@@ -1,6 +1,7 @@
 require 'Term'
 require 'rspec'
 require 'definition_class'
+require 'Words'
 
 describe 'Term' do
   before do
@@ -15,8 +16,7 @@ describe 'Term' do
   it 'accepts a definition and attaches it to a term' do
     new_term = Term.new 'Carrot'
     new_definition = Definition.new 'An orange vegetable'
-    new_term.definition_input(new_definition)
-    new_term.definition[0].new_description.should eq 'An orange vegetable'
+    new_term.definition_input(new_definition).should eq [new_definition]
   end
 
   it 'displays all terms added' do
@@ -40,6 +40,12 @@ describe 'Term' do
     new_term.definition.should eq [new_definition, new_definition_two]
   end
 
+  # it 'allows multiple words for the same term' do
+  #   new_term = Term.new 'Carrot'
+  #   new_term_two = Term.new 'Carrotte'
+  #   terms_array.should eq ['Carrot', 'Carrotte']
+  # end
+
   describe '.all' do
     it 'creates an empty array' do
       Term.clear
@@ -59,5 +65,13 @@ describe 'Definition' do
     new_term = Term.new 'Carrot'
     new_definition = Definition.new 'An orange vegetable'
     new_definition.should be_an_instance_of Definition
+  end
+end
+
+describe 'Words' do
+  it 'is initialized with an original term and language' do
+    new_word = Words.new 'word', 'language'
+    new_word.word.should eq 'word'
+    new_word.language.should eq 'language'
   end
 end
