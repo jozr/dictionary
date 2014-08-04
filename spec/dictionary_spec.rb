@@ -19,6 +19,12 @@ describe 'Term' do
     new_term.definition[0].new_description.should eq 'An orange vegetable'
   end
 
+  it 'displays all terms added' do
+    new_term = Term.new 'Food'
+    new_term_two = Term.new 'Water'
+    Term.all.should eq [new_term, new_term_two]
+  end
+
   it 'accepts multiple definitions for one term' do
     new_term = Term.new 'Carrot'
     new_definition = Definition.new 'An orange vegetable'

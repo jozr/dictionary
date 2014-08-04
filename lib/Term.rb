@@ -2,7 +2,7 @@ class Term
   @@all_terms = []
 
   def Term.clear
-    @all_terms = []
+    @@all_terms = []
   end
 
   def Term.all
@@ -12,10 +12,11 @@ class Term
   def initialize(input_term)
     @input_term = input_term
     @definition = []
+    @@all_terms << self
   end
 
   def add_term
-    @@all_terms << self
+    @@all_terms << @input_term
   end
 
   def input_term
