@@ -3,9 +3,9 @@ require 'rspec'
 require 'definition_class'
 
 describe 'Term' do
-  # before do
-  #   Term.clear
-  # end
+  before do
+    Term.clear
+  end
 
   it 'is initialized with a term' do
     new_term = Term.new 'Carrot'
@@ -18,9 +18,17 @@ describe 'Term' do
     new_term.definition_input(new_definition)
     new_term.definition[0].new_description.should eq 'An orange vegetable'
   end
+
+  describe '.all' do
+    it 'creates an empty array' do
+      Term.clear
+      Term.all.should eq []
+    end
+  end
+
+  describe '.clear' do
+    it 'clears all the terms and definitions' do
+      Term.clear.should eq []
+    end
+  end
 end
-# describe '.clear' do
-#   it 'clears all the '
-  # it 'will return inputted term' do
-  #   Term'Carrot'.should eq'Carrot'
-  # end

@@ -1,6 +1,14 @@
 class Term
   @@all_terms = []
 
+  def Term.clear
+    @all_terms = []
+  end
+
+  def Term.all
+    @@all_terms
+  end
+
   def initialize(input_term)
     @input_term = input_term
     @definition = []
