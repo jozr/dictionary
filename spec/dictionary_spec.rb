@@ -25,6 +25,12 @@ describe 'Term' do
     Term.all.should eq [new_term, new_term_two]
   end
 
+  it 'searches for and finds terms already added' do
+    new_term = Term.new 'Pizza'
+    new_definition = Definition.new 'A food that fell from the sky'
+    Term.search('Pizza').should eq [new_term]
+  end
+
   it 'accepts multiple definitions for one term' do
     new_term = Term.new 'Carrot'
     new_definition = Definition.new 'An orange vegetable'

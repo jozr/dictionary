@@ -1,3 +1,4 @@
+require('pry')
 class Term
   @@all_terms = []
 
@@ -7,6 +8,23 @@ class Term
 
   def Term.all
     @@all_terms
+  end
+
+  def Term.search(search_input)
+    @search_input = search_input
+    Term.all.each do |term|
+      puts term
+      puts search_input
+      if @search_input == term
+        return result = term
+      # elsif @search_input != term
+      #   return result = 'Sorry, term not defined.'
+      end
+    end
+  end
+
+  def search_input
+    @search_input = search_input
   end
 
   def initialize(input_term)

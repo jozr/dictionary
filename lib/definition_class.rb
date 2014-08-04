@@ -5,6 +5,10 @@ class Definition
     @@all_definitions = []
   end
 
+  def description_add
+    @all_definitions << self
+  end
+
   def initialize(new_description)
     @new_description = new_description
     @definition_array = []
