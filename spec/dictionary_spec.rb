@@ -1,6 +1,6 @@
-require 'Term'
 require 'rspec'
-require 'definition_class'
+require 'Term'
+require 'Definitions'
 require 'Words'
 
 describe 'Term' do
@@ -40,11 +40,11 @@ describe 'Term' do
     new_term.definition.should eq [new_definition, new_definition_two]
   end
 
-  # it 'allows multiple words for the same term' do
-  #   new_term = Term.new 'Carrot'
-  #   new_term_two = Term.new 'Carrotte'
-  #   terms_array.should eq ['Carrot', 'Carrotte']
-  # end
+  it 'allows multiple words for the same term' do
+    new_term = Term.new 'Carrot'
+    new_term_two = Term.new 'Carrotte'
+    terms_array.should.eq [new_term, new_term_two]
+  end
 
   describe '.all' do
     it 'creates an empty array' do

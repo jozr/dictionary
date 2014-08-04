@@ -1,4 +1,4 @@
-require 'definition_class'
+require 'Definitions'
 require 'Words'
 
 require('pry')
@@ -33,11 +33,21 @@ class Term
   def initialize(input_term)
     @input_term = input_term
     @definition = []
+    @terms_array = []
+    @@word_array = []
     @@all_terms << self
   end
 
   def add_term
     @@all_terms << @input_term
+  end
+
+  def push_in
+    @terms_array << @@word_array
+  end
+
+  def terms_array
+    @terms_array
   end
 
   def input_term
