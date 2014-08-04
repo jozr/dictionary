@@ -6,11 +6,19 @@ class Term
     @definition = []
   end
 
+  def add_term
+    @@all_terms << self
+  end
+
   def input_term
     @input_term
   end
 
-  def definition(description)
+  def definition
+    @definition
+  end
+
+  def definition_input(description)
     @definition << description
   end
 end
