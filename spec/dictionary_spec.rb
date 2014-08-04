@@ -14,7 +14,7 @@ describe 'Term' do
 
   it 'accepts a definition and attaches it to a term' do
     new_term = Term.new 'Carrot'
-    new_definition = Definition_class.new 'An orange vegetable'
+    new_definition = Definition.new 'An orange vegetable'
     new_term.definition_input(new_definition)
     new_term.definition[0].new_description.should eq 'An orange vegetable'
   end
@@ -30,5 +30,13 @@ describe 'Term' do
     it 'clears all the terms and definitions' do
       Term.clear.should eq []
     end
+  end
+end
+
+describe 'Definition' do
+  it 'is initialized with a definition' do
+    new_term = Term.new 'Carrot'
+    new_definition = Definition.new 'An orange vegetable'
+    new_definition.should be_an_instance_of Definition
   end
 end
